@@ -1,0 +1,26 @@
+.marquee-wrapper {
+  background-color: #000; /* black background */
+  color: #fff; /* white text */
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 12px 0;
+  position: relative;
+  z-index: 10;
+}
+
+.marquee-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 20s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
