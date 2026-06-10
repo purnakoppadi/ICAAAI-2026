@@ -1,0 +1,777 @@
+/* ==========================================================
+   ICAAAI-2026 — VISUAL POLISH & MOBILE FIXES
+   ========================================================== */
+
+
+
+/* ==========================================================
+   FINAL MOBILE RESPONSIVENESS AUDIT — screens below 768px
+   Desktop remains unchanged.
+   ========================================================== */
+
+@media (max-width: 767px) {
+
+  /* ----------------------------------------------------------
+     GLOBAL & CONTENT READABILITY
+     ---------------------------------------------------------- */
+  html,
+  body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+
+  .container,
+  .container-fluid {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  p,
+  li,
+  .text-justify,
+  .tab-pane p {
+    font-size: 15px !important;
+    line-height: 1.8 !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    text-align: justify !important;
+  }
+
+  /* Call For Papers specific */
+  ul,
+  ol {
+    padding-left: 20px !important;
+    margin-left: 0 !important;
+  }
+
+  ul li,
+  ol li {
+    text-align: justify !important;
+    line-height: 1.8 !important;
+    margin-bottom: 10px !important;
+  }
+
+  section {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  /* Prevent elements from exceeding viewport width */
+  img,
+  iframe,
+  .timeline-box,
+  div[style*="width"] {
+    max-width: 100% !important;
+  }
+
+  /* Remove fixed inline widths that break mobile layout */
+  div[style*="width: 360px"],
+  div[style*="width: 450px"] {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* ----------------------------------------------------------
+     1. ABOUT SECTION TABS (3 tabs: About College, Dept, Conf)
+     Force side-by-side, equal width.
+     ---------------------------------------------------------- */
+  #about .tabs-simple>.nav-tabs {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    margin-bottom: 15px !important;
+    padding-left: 0 !important;
+  }
+
+  #about .tabs-simple>.nav-tabs>.nav-item {
+    width: 33.33% !important;
+    flex: 1 1 33.33% !important;
+  }
+
+  #about .tabs-simple>.nav-tabs>.nav-item>.nav-link {
+    font-size: 12px !important;
+    padding: 10px 4px !important;
+    text-align: center !important;
+    white-space: normal !important;
+    line-height: 1.3 !important;
+    height: 100% !important;
+  }
+
+  /* ----------------------------------------------------------
+     2. COMMITTEE TABS — horizontally scrollable
+     ---------------------------------------------------------- */
+  #committee .nav-tabs {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    justify-content: flex-start !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-bottom: 20px !important;
+    padding-bottom: 5px !important;
+    /* give space for active border */
+  }
+
+  #committee .nav-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  #committee .nav-tabs .nav-item {
+    flex: 0 0 auto !important;
+  }
+
+  #committee .nav-tabs .nav-link {
+    white-space: nowrap !important;
+    font-size: 14px !important;
+    padding: 10px 16px !important;
+  }
+
+  .tab-content {
+    padding-top: 20px !important;
+  }
+
+  /* ----------------------------------------------------------
+     3. SPEAKER / KEYNOTE / CHIEF GUEST CARDS
+     Always single column — NEVER 2-column on mobile.
+     ---------------------------------------------------------- */
+  #speakers .col-sm-6,
+  #speakers .col-md-3,
+  #speakers .col-md-4,
+  .col-sm-6.col-md-4 {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    display: block !important;
+    margin-bottom: 30px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .thumb-info,
+  .col-sm-6.col-md-4 .thumb-info-wrapper img {
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+
+  /* Prevent any speaker grid from becoming 2-column */
+  .row.pt-4.justify-content-center {
+    display: block !important;
+  }
+
+  .row.pt-4.justify-content-center>div {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 30px !important;
+  }
+
+  #speakers h4,
+  .col-sm-6.col-md-4 h4 {
+    margin-top: 16px !important;
+    margin-bottom: 6px !important;
+    font-size: 1.1rem !important;
+    text-align: center !important;
+  }
+
+  #speakers p,
+  .col-sm-6.col-md-4 p {
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+    text-align: center !important;
+  }
+
+  /* ----------------------------------------------------------
+     4. SCHEDULE / TIMELINE
+     ---------------------------------------------------------- */
+  .timeline::before {
+    left: 15px !important;
+  }
+
+  .timeline-box {
+    width: calc(100% - 30px) !important;
+    margin-left: 30px !important;
+    margin-right: 0 !important;
+    padding: 16px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .timeline-box.right {
+    margin-left: 30px !important;
+  }
+
+  .timeline-box p,
+  .timeline-box h4 {
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .timeline-date {
+    margin-left: 15px !important;
+    width: calc(100% - 15px) !important;
+    padding: 10px 15px !important;
+    text-align: center !important;
+  }
+
+  /* ----------------------------------------------------------
+     5. GALLERY
+     ---------------------------------------------------------- */
+  .gallery-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+  }
+
+  .gallery-item {
+    width: calc(50% - 6px) !important;
+    flex: 0 0 calc(50% - 6px) !important;
+    margin: 0 !important;
+  }
+
+  .gallery-item img {
+    object-fit: cover !important;
+    aspect-ratio: 4/3;
+  }
+
+  /* ----------------------------------------------------------
+     6. SPONSORS
+     ---------------------------------------------------------- */
+  .sponsors-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    align-items: center !important;
+  }
+
+  .sponsors-container img {
+    max-width: calc(50% - 8px) !important;
+    height: auto !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+  }
+
+  /* ----------------------------------------------------------
+     7. REGISTRATION / PRICING CARDS
+     ---------------------------------------------------------- */
+  .pricing-card-container {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 16px !important;
+    padding: 0 4px 10px 4px !important;
+    scrollbar-width: none;
+    margin-left: -10px !important;
+    margin-right: -10px !important;
+  }
+
+  .pricing-card-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pricing-card {
+    flex: 0 0 280px !important;
+    min-width: 280px !important;
+    scroll-snap-align: center;
+    margin: 0 !important;
+  }
+
+  /* ----------------------------------------------------------
+     8. FOOTER
+     ---------------------------------------------------------- */
+  #footer .row {
+    flex-direction: column !important;
+    gap: 32px !important;
+    text-align: center !important;
+  }
+
+  #footer .col-lg-6 {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  #footer img {
+    max-width: 200px !important;
+    margin: 0 auto !important;
+  }
+
+  /* ----------------------------------------------------------
+     9. LIGHTBOX / DIALOG
+     ---------------------------------------------------------- */
+  .dialog.dialog-lg {
+    width: 95% !important;
+    max-width: 95% !important;
+    padding: 20px !important;
+  }
+
+  .dialog.dialog-lg .row {
+    flex-direction: column !important;
+  }
+
+  .dialog.dialog-lg .col-lg-4,
+  .dialog.dialog-lg .col-sm-4,
+  .dialog.dialog-lg .col-lg-8,
+  .dialog.dialog-lg .col-sm-8 {
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* ----------------------------------------------------------
+     10. WEB TEAM MODAL FIXES
+     ---------------------------------------------------------- */
+  #modal-box {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    /* Enable vertical scrolling */
+    overflow-x: hidden !important;
+    padding: 15px !important;
+    box-sizing: border-box !important;
+  }
+
+  #modal-content {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow-y: visible !important;
+  }
+
+  #faculty-text,
+  #students-text {
+    width: 100% !important;
+    height: auto !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  #faculty-photo,
+  #faculty-details {
+    width: 100% !important;
+    height: auto !important;
+    margin-left: 0 !important;
+    margin-top: 10px !important;
+    padding: 0 !important;
+  }
+
+  .faculty-pic {
+    width: 100% !important;
+    max-width: 210px !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+
+  .student-details-1,
+  .student-details-2 {
+    display: flex !important;
+    flex-direction: column !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-top: 10px !important;
+  }
+
+  .row-one,
+  .row-two {
+    width: 100% !important;
+    height: auto !important;
+    margin-bottom: 20px !important;
+    padding-bottom: 15px !important;
+  }
+
+  .row-one .students-vivaralu,
+  .row-two .students-vivaralu {
+    width: 100% !important;
+    max-width: 240px !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+
+  .row-one .posts,
+  .row-two .posts,
+  .post-details {
+    margin-left: 0 !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  .student-profiles,
+  .icons {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  #faculty-details .name,
+  #faculty-details .designation {
+    margin-left: 0 !important;
+    text-align: center !important;
+  }
+
+  #close-modal {
+    z-index: 10001 !important;
+    top: 10px !important;
+    right: 10px !important;
+  }
+
+  /* ----------------------------------------------------------
+     11. CALL FOR PAPERS - OWL CAROUSEL STACKED OVERRIDE
+     ---------------------------------------------------------- */
+  #calls .owl-carousel,
+  #calls .owl-stage-outer,
+  #calls .owl-stage {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    transform: none !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  #calls .owl-item {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto 25px auto !important;
+    position: relative !important;
+    float: none !important;
+    background: var(--conf-white, #ffffff) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+    height: auto !important;
+    min-height: auto !important;
+  }
+
+  /* Force content wrapper to behave and not overflow */
+  #calls .owl-item>div {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #calls .owl-nav,
+  #calls .owl-dots,
+  .mobile-calls-hint {
+    display: none !important;
+  }
+
+  #calls,
+  #callforpapers,
+  .author-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    transform: none !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Specific Button and List Fixes for Call For Papers */
+  #calls button,
+  .author-content button,
+  #qrBtn,
+  .btn {
+    width: auto !important;
+    max-width: 100% !important;
+    display: inline-block !important;
+    white-space: normal !important;
+  }
+
+  #calls ul,
+  #calls ol,
+  .author-content ul,
+  .author-content ol {
+    padding-left: 20px !important;
+    margin-bottom: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ----------------------------------------------------------
+     12. MOBILE HERO SECTION BALANCE & WHITE STRIP FIX
+     ---------------------------------------------------------- */
+  .main,
+  #home,
+  #content {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .home-background,
+  #content {
+    min-height: 65vh !important;
+    height: auto !important;
+    padding: 80px 15px 40px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 !important;
+  }
+
+  .middleText {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 15px !important;
+    margin-top: 0 !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  .text-center-box h1,
+  .text-center-box h1.imgText,
+  .home-background h1 {
+    font-size: 1.05rem !important;
+    line-height: 1.45 !important;
+    letter-spacing: 0.5px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* ----------------------------------------------------------
+     13. CALL FOR PAPERS - TEXT READABILITY FIX
+     ---------------------------------------------------------- */
+  #calls p,
+  #calls li,
+  #calls div,
+  .call-for-papers p,
+  .call-for-papers li,
+  .call-for-papers-card p,
+  .call-for-papers-card li,
+  .paper-guidelines p,
+  .paper-guidelines li,
+  .author-content p,
+  .author-content li {
+    text-align: left !important;
+    word-spacing: normal !important;
+    letter-spacing: normal !important;
+    font-size: 15px !important;
+    line-height: 1.8 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* ----------------------------------------------------------
+     14. MOBILE FOOTER FIXES
+     ---------------------------------------------------------- */
+  #footer .col-lg-6 {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  #footer .col-lg-6.d-flex.flex-column.align-items-end.text-end {
+    margin-bottom: 30px !important;
+  }
+
+  #footer img.img-fluid {
+    max-width: 120px !important;
+    margin: 0 auto 20px auto !important;
+    display: block !important;
+  }
+
+  #footer h4 {
+    margin-bottom: 15px !important;
+    font-size: 1.2rem !important;
+  }
+
+  #footer p.text-2,
+  #footer .text-2 {
+    font-size: 14px !important;
+    line-height: 1.8 !important;
+    text-align: center !important;
+  }
+
+  #footer p.text-2 strong {
+    display: block !important;
+    margin-top: 15px !important;
+    margin-bottom: 5px !important;
+    font-size: 15px !important;
+  }
+
+  #footer .bg-secondary.py-5 {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+  }
+
+  #click-text {
+    margin-top: 10px !important;
+  }
+
+  /* ----------------------------------------------------------
+     16. MAROON QUICK LINKS STRIP (MARQUEE FIX)
+     ---------------------------------------------------------- */
+  .row-strip {
+    overflow: hidden !important;
+    /* Prevents horizontal page scrolling */
+    white-space: nowrap !important;
+    display: block !important;
+  }
+
+  .row-strip .moving-text-strip {
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    width: max-content !important;
+    animation: mobile-marquee 18s linear infinite !important;
+  }
+
+  .row-strip .moving-text-strip:hover,
+  .row-strip .moving-text-strip:active {
+    animation-play-state: paused !important;
+  }
+
+  @keyframes mobile-marquee {
+    0% {
+      transform: translateX(100vw);
+    }
+
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .row-strip .moving-text-strip button,
+  .row-strip .moving-text-strip .btn,
+  .row-strip .moving-text-strip .payment-btn {
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* ----------------------------------------------------------
+     15. FINAL MOBILE AUDIT & POLISH
+     ---------------------------------------------------------- */
+
+  /* Committee Tabs and Cards */
+  #committee .nav-tabs {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    justify-content: flex-start !important;
+    border-bottom: 1px solid #dee2e6 !important;
+    margin-bottom: 15px !important;
+    padding-bottom: 5px !important;
+  }
+
+  #committee .nav-tabs .nav-item {
+    flex: 0 0 auto !important;
+  }
+
+  #committee .tab-content {
+    background: #ffffff !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Speakers & Chief Guests */
+  #speakers .row>div {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    display: block !important;
+    margin-bottom: 30px !important;
+  }
+
+  #speakers .thumb-info {
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Gallery Section */
+  .gallery-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    gap: 15px !important;
+  }
+
+  .gallery-item {
+    width: calc(50% - 7.5px) !important;
+    margin: 0 0 15px 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .gallery-item img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+    aspect-ratio: 4/3 !important;
+  }
+
+  /* Sponsors Section */
+  .sponsors-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 20px !important;
+  }
+
+  .sponsors-container img {
+    width: calc(50% - 15px) !important;
+    max-width: 160px !important;
+    height: auto !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+  }
+
+  /* Schedule / Timeline spacing */
+  #schedule .row>div,
+  #program .row>div,
+  .timeline .timeline-item {
+    margin-bottom: 25px !important;
+  }
+
+  .timeline .timeline-date {
+    display: block !important;
+    margin-bottom: 8px !important;
+  }
+}
